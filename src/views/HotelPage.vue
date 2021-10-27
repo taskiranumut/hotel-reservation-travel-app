@@ -1,7 +1,12 @@
 <script>
+import HotelDetails from "@/components/HotelDetails.vue";
+
 export default {
   name: "HotelPage",
   props: ["hotelDatas"],
+  components: {
+    HotelDetails,
+  },
   data() {
     return {
       hotelInfo: null,
@@ -9,6 +14,11 @@ export default {
   },
   created() {
     this.hotelInfo = this.getHotelInfoByRouteId();
+  },
+  watch: {
+    $route() {
+      this.hotelInfo = this.getHotelInfoByRouteId();
+    },
   },
   methods: {
     getHotelInfoByRouteId() {
@@ -21,8 +31,7 @@ export default {
 
 <template>
   <div>
-    <h1>Hotel Page with id params</h1>
-    <!-- TODO: HotelDetails component -->
+    <HotelDetails :hotelInfo="hotelInfo" />
     <!-- TODO: ReservationForm component -->
   </div>
 </template>
