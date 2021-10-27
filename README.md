@@ -1,24 +1,12 @@
-# hotel-reservation-travel-app
+# Hotel Reservation Travel App
 
-## Project setup
-```
-npm install
-```
+#### Working progress...
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+👉 [Project Demo](https://hotel-reservation-travel-app.netlify.app/)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### Project setup
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Node.js must be installed.
+2. After cloned the project, ➪ `npm install`
+3. Compiles and hot-reloads for development, ➪ `npm run serve`
+4. Compiles and minifies for production, ➪ `npm run build`
