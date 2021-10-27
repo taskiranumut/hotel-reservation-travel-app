@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 /dist
+colors.css
 
 
 # local env files
