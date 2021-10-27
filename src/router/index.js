@@ -10,6 +10,16 @@ const routes = [
     name: "HomePage",
     component: HomePage,
   },
+  {
+    path: "/hotel/:id",
+    name: "HotelPage",
+    component: () => import("@/views/HotelPage.vue"),
+  },
+  {
+    path: "/reservation",
+    name: "ReservationPage",
+    component: () => import("@/views/ReservationPage.vue"),
+  },
 ];
 
 const router = new VueRouter({

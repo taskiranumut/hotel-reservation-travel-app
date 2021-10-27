@@ -1,12 +1,13 @@
 <script>
 export default {
   name: "HomePage",
-  components: {},
+  props: ["hotelDatas"],
 };
 </script>
 
 <template>
   <div>
-    <h1>Hello</h1>
+    <h1>Home Page</h1>
+    <!-- TODO: HotelCard component-->
   </div>
 </template>
