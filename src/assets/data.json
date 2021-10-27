@@ -89,7 +89,7 @@
   },
   {
     "id": "5",
-    "hotelName": "Burj Al Arab Jumeirah",
+    "hotelName": "Burj Al Arab",
     "images": {
       "cardImage": "https://www.telegraph.co.uk/content/dam/Travel/Destinations/Middle%20East/Dubai/burj-al-arab-dubai-p.jpg?imwidth=960",
       "imageList": [
@@ -111,7 +111,7 @@
   },
   {
     "id": "6",
-    "hotelName": "Hotel Fasano Rio de Janeiro",
+    "hotelName": "Hotel Fasano",
     "images": {
       "cardImage": "https://www.telegraph.co.uk/content/dam/luxury/2016/06/17/Fasano_Rio.jpg?imwidth=960",
       "imageList": [
