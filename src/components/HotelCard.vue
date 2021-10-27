@@ -1,7 +1,16 @@
 <script>
+import Stars from "@/components/shared/Stars.vue";
+import Price from "@/components/shared/Price.vue";
+import Location from "@/components/shared/Location.vue";
+
 export default {
   name: "HotelCard",
   props: ["hotelInfo"],
+  components: {
+    Stars,
+    Price,
+    Location,
+  },
   methods: {
     goHotelPageRoute(hotelId) {
       this.$router.push({
@@ -32,40 +41,20 @@ export default {
             <h3 class="m-0">{{ hotelInfo.hotelName }}</h3>
             <!-- Hotel Name finish-->
 
-            <!-- Stars start -->
-            <div class="mt-1 mb-2">
-              <span
-                v-for="i in Number(hotelInfo.starNumber)"
-                :key="i"
-                class="fa fa-star star-color mr-1"
-              ></span>
+            <!-- Stars -->
+            <div class="mt-1 mb-3">
+              <Stars :hotelInfo="hotelInfo" />
             </div>
-            <!-- Stars finish -->
 
-            <!-- Price start -->
-            <div class="my-2">
-              <p class="m-0">
-                <strong class="price-text">${{ hotelInfo.price }}</strong>
-                <small> / per night</small>
-              </p>
+            <!-- Price -->
+            <div class="pl-2 my-2">
+              <Price :hotelInfo="hotelInfo" />
             </div>
-            <!-- Price finish -->
 
-            <!-- Location start -->
-            <div class="my-2">
-              <div class="row">
-                <div class="col-1">
-                  <span><i class="fas fa-map-marker-alt loc-icon"></i></span>
-                </div>
-                <div class="col p-0 pl-1">
-                  <span
-                    >{{ hotelInfo.location.city }} /
-                    {{ hotelInfo.location.country }}</span
-                  >
-                </div>
-              </div>
+            <!-- Location  -->
+            <div class="pl-2 my-2">
+              <Location :hotelInfo="hotelInfo" />
             </div>
-            <!-- Location finish -->
           </b-card-body>
         </b-col>
       </b-row>
