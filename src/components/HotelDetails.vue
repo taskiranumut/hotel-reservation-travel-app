@@ -2,6 +2,7 @@
 import Stars from "@/components/shared/Stars.vue";
 import Price from "@/components/shared/Price.vue";
 import Location from "@/components/shared/Location.vue";
+import ReservationForm from "@/components/ReservationForm.vue";
 
 export default {
   name: "HotelDetails",
@@ -10,11 +11,13 @@ export default {
     Stars,
     Price,
     Location,
+    ReservationForm,
   },
   data() {
     return {
       slide: 0,
       sliding: null,
+      ownerForm: null,
     };
   },
   methods: {
@@ -25,6 +28,10 @@ export default {
     onSlideEnd(slide) {
       this.sliding = false;
       this.slide = slide;
+    },
+    holdownerForm(ownerForm) {
+      this.ownerForm = ownerForm;
+      console.log(this.ownerForm);
     },
   },
 };
@@ -101,6 +108,9 @@ export default {
       </div>
     </article>
     <!-- Hotel Description finish -->
+
+    <!-- Reservation Form -->
+    <ReservationForm @ownerForm="holdownerForm" />
   </div>
 </template>
 
