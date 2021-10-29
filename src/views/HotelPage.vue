@@ -1,15 +1,18 @@
 <script>
 import HotelDetails from "@/components/HotelDetails.vue";
+import ReservationForm from "@/components/ReservationForm.vue";
 
 export default {
   name: "HotelPage",
   props: ["hotelDatas"],
   components: {
     HotelDetails,
+    ReservationForm,
   },
   data() {
     return {
       hotelInfo: null,
+      ownerForm: null,
     };
   },
   created() {
@@ -25,6 +28,10 @@ export default {
       const hotelId = this.$route.params.id;
       return this.hotelDatas.find((item) => item.id === hotelId);
     },
+    holdownerForm(ownerForm) {
+      this.ownerForm = ownerForm;
+      console.log(this.ownerForm);
+    },
   },
 };
 </script>
@@ -32,6 +39,6 @@ export default {
 <template>
   <div>
     <HotelDetails :hotelInfo="hotelInfo" />
-    <!-- TODO: ReservationForm component -->
+    <ReservationForm @ownerForm="holdownerForm" />
   </div>
 </template>
