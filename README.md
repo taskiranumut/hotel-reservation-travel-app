@@ -2,7 +2,8 @@
 
 #### Working progress...
 
-👉 [Project Demo](https://hotel-reservation-travel-app.netlify.app/)
+<!-- 👉 [Project Demo](https://hotel-reservation-travel-app.netlify.app/) -->
+<!-- 👉 [Project Demo](https://hotel-reservation-travel-app.vercel.app/) -->
 
 ### Project setup
 

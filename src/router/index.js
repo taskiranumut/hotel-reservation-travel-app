@@ -19,6 +19,7 @@ const routes = [
     path: "/reservation",
     name: "ReservationPage",
     component: () => import("@/views/ReservationPage.vue"),
+    props: true,
   },
 ];
 
