@@ -20,8 +20,9 @@ export default {
       this.$emit("ownerForm", this.ownerForm);
     },
     calculateDayNumber() {
-      // TODO: calculation from dates
-      return 4;
+      const timeDifference =
+        this.ownerForm.endDate.getTime() - this.ownerForm.startDate.getTime();
+      return timeDifference / (1000 * 3600 * 24);
     },
   },
 };
@@ -60,6 +61,7 @@ export default {
                 month: 'numeric',
                 day: 'numeric',
               }"
+              :value-as-date="true"
               locale="en"
               v-model="ownerForm.startDate"
             ></b-form-datepicker
@@ -73,6 +75,7 @@ export default {
                 month: 'numeric',
                 day: 'numeric',
               }"
+              :value-as-date="true"
               v-model="ownerForm.endDate"
               locale="en"
             ></b-form-datepicker>
