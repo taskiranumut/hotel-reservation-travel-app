@@ -12,7 +12,6 @@ export default {
   data() {
     return {
       hotelInfo: null,
-      ownerForm: null,
     };
   },
   created() {
@@ -28,9 +27,21 @@ export default {
       const hotelId = this.$route.params.id;
       return this.hotelDatas.find((item) => item.id === hotelId);
     },
-    holdownerForm(ownerForm) {
-      this.ownerForm = ownerForm;
-      console.log(this.ownerForm);
+    sendDataToReservationPage(ownerForm) {
+      const reservationInfo = {
+        hotelName: this.hotelInfo.hotelName,
+        price: this.hotelInfo.price,
+        ownerFirstName: ownerForm.firstName,
+        ownerLastName: ownerForm.lastName,
+        personNumber: ownerForm.personNumber,
+        dayNumber: ownerForm.dayNumber,
+      };
+      this.$router.push({
+        name: "ReservationPage",
+        params: {
+          reservationInfo,
+        },
+      });
     },
   },
 };
@@ -39,6 +50,6 @@ export default {
 <template>
   <div>
     <HotelDetails :hotelInfo="hotelInfo" />
-    <ReservationForm @ownerForm="holdownerForm" />
+    <ReservationForm @ownerForm="sendDataToReservationPage" />
   </div>
 </template>
