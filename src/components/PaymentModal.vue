@@ -1,7 +1,18 @@
 <script>
+import { filter } from "@/mixins/filter.js";
+
 export default {
   name: "PaymentModal",
   props: ["reservationInfo", "infoFormList"],
+  mixins: [filter],
+  data() {
+    return {
+      owner: null,
+    };
+  },
+  created() {
+    this.owner = this.infoFormList.find((item) => item.index === 1);
+  },
   computed: {
     totalPrice() {
       const price =
@@ -9,6 +20,9 @@ export default {
         this.reservationInfo.dayNumber *
         this.reservationInfo.personNumber;
       return price;
+    },
+    ownerFullName() {
+      return `${this.owner.firstName} ${this.owner.lastName}`;
     },
   },
   methods: {
@@ -23,11 +37,8 @@ export default {
 </script>
 
 <template>
-  <!-- PaymentModal props:
-      * show success sentences with owner name (filter "Mr" or "Mrs" by gender)
-    -->
   <div class="modal-mask">
-    <div class="modal-wrapper">
+    <div class="modal-wrapper" @click="$emit('modalStatus', false)">
       <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content" @click="$event.stopPropagation()">
           <p class="modal-title mt-3 text-center header-p pb-2 mx-5">
@@ -35,9 +46,10 @@ export default {
           </p>
           <div class="modal-body px-5 mt-3">
             <h4>
-              <strong>Mr. {{ reservationInfo.ownerFirstName }}</strong>
-              <strong>{{ reservationInfo.ownerLastName }}</strong> payment is
-              successful for
+              <strong
+                >{{ owner.gender | chooseGender }} {{ ownerFullName }}</strong
+              >
+              payment is successful for
               <strong>{{ reservationInfo.hotelName }}</strong> reservation for
               <strong>{{ reservationInfo.personNumber }}</strong> persons.
             </h4>
