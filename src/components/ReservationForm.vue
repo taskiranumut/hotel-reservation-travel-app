@@ -4,8 +4,6 @@ export default {
   data() {
     return {
       ownerForm: {
-        firstName: null,
-        lastName: null,
         startDate: null,
         endDate: null,
         personNumber: 1,
@@ -33,24 +31,6 @@ export default {
     <h2 class="mb-4">Reservation Form</h2>
     <div>
       <b-form @submit="submitForm">
-        <b-row class="my-4">
-          <b-col>
-            <label for="input-1">Reservation owner first name</label>
-            <b-form-input
-              id="input-1"
-              v-model="ownerForm.firstName"
-              placeholder="Enter first name"
-            ></b-form-input>
-          </b-col>
-          <b-col>
-            <label for="input-2">Reservation owner last name</label>
-            <b-form-input
-              id="input-2"
-              v-model="ownerForm.lastName"
-              placeholder="Enter last name"
-            ></b-form-input>
-          </b-col>
-        </b-row>
         <b-row class="my-4">
           <b-col>
             <label for="datepicker-dateformat1">Start date</label>

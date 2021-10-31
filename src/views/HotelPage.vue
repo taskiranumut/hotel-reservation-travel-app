@@ -31,8 +31,6 @@ export default {
       const reservationInfo = {
         hotelName: this.hotelInfo.hotelName,
         price: this.hotelInfo.price,
-        ownerFirstName: ownerForm.firstName,
-        ownerLastName: ownerForm.lastName,
         personNumber: ownerForm.personNumber,
         dayNumber: ownerForm.dayNumber,
       };
