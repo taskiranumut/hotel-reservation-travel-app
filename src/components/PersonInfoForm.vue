@@ -3,7 +3,7 @@ import InfoFormItem from "@/components/InfoFormItem.vue";
 
 export default {
   name: "PersonInfoForm",
-  props: ["reservationInfo"],
+  props: ["reservationInfo", "isValidAllForms"],
   components: {
     InfoFormItem,
   },
@@ -27,13 +27,18 @@ export default {
         <InfoFormItem
           v-for="index in reservationInfo.personNumber"
           :key="index"
-          :index="index"
+          :formIndex="index"
           :reservationInfo="reservationInfo"
           @infoForm="infoForm"
         />
         <b-row class="my-4">
           <b-col>
-            <b-button block type="submit" variant="none" class="btn submit-btn"
+            <b-button
+              block
+              :disabled="!isValidAllForms"
+              type="submit"
+              variant="none"
+              class="btn submit-btn"
               >Go to checkout</b-button
             >
           </b-col>

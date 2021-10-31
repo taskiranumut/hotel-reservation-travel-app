@@ -15,6 +15,11 @@ export default {
       infoFormList: [],
     };
   },
+  computed: {
+    isValidAllForms() {
+      return this.infoFormList.every((item) => item.isValid === true);
+    },
+  },
   methods: {
     showPaymentModal(status) {
       this.paymentModalStatus = status;
@@ -41,6 +46,7 @@ export default {
       @modalStatus="showPaymentModal"
       :reservationInfo="reservationInfo"
       @infoForm="holdInfoForms"
+      :isValidAllForms="isValidAllForms"
     />
     <PaymentModal
       v-if="paymentModalStatus"
