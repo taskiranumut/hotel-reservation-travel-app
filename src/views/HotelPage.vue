@@ -16,6 +16,7 @@ export default {
   },
   created() {
     this.hotelInfo = this.getHotelInfoByRouteId();
+    localStorage.removeItem("reservationInfo");
   },
   watch: {
     $route() {

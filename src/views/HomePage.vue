@@ -7,6 +7,9 @@ export default {
   components: {
     HotelCard,
   },
+  created() {
+    localStorage.removeItem("reservationInfo");
+  },
 };
 </script>
 

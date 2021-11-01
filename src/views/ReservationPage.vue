@@ -11,9 +11,14 @@ export default {
   },
   data() {
     return {
+      reservationInfoFromStorage: null,
       paymentModalStatus: false,
       infoFormList: [],
     };
+  },
+  created() {
+    if (this.reservationInfo) this.setLocalStorage();
+    this.reservationInfoFromStorage = this.getLocalStorage();
   },
   computed: {
     isValidAllForms() {
@@ -36,6 +41,15 @@ export default {
     isThereTheInfoFormInList(infoForm) {
       return this.infoFormList.some((item) => item.index === infoForm.index);
     },
+    setLocalStorage() {
+      localStorage.setItem(
+        "reservationInfo",
+        JSON.stringify(this.reservationInfo)
+      );
+    },
+    getLocalStorage() {
+      return JSON.parse(localStorage.getItem("reservationInfo"));
+    },
   },
 };
 </script>
@@ -44,14 +58,14 @@ export default {
   <div>
     <PersonInfoForm
       @modalStatus="showPaymentModal"
-      :reservationInfo="reservationInfo"
+      :reservationInfo="reservationInfoFromStorage"
       @infoForm="holdInfoForms"
       :isValidAllForms="isValidAllForms"
     />
     <PaymentModal
       v-if="paymentModalStatus"
       @modalStatus="showPaymentModal"
-      :reservationInfo="reservationInfo"
+      :reservationInfo="reservationInfoFromStorage"
       :infoFormList="infoFormList"
     />
   </div>
