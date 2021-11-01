@@ -138,23 +138,4 @@ export default {
   background-color: #f4f4f2;
   border-radius: 5px;
 }
-
-.submit-btn {
-  background-color: rgb(54, 139, 133, 0.8);
-  border: none;
-  height: 38px;
-  color: #f4f4f2;
-}
-
-.submit-btn:focus,
-.submit-btn:focus,
-.submit-btn:active {
-  box-shadow: none;
-  border: none;
-  height: 38px;
-}
-
-.submit-btn:hover {
-  background-color: #368b85;
-}
 </style>

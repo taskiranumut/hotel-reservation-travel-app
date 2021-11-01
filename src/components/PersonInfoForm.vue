@@ -53,23 +53,4 @@ export default {
   width: 70%;
   margin: auto;
 }
-/* Checkout submit btn */
-.submit-btn {
-  background-color: rgb(54, 139, 133, 0.8);
-  border: none;
-  height: 38px;
-  color: #f4f4f2;
-}
-
-.submit-btn:focus,
-.submit-btn:focus,
-.submit-btn:active {
-  box-shadow: none;
-  border: none;
-  height: 38px;
-}
-
-.bsubmit-btn:hover {
-  background-color: #368b85;
-}
 </style>

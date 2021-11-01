@@ -65,7 +65,7 @@ export default {
           <b-button
             @click="goHotelPageRoute(hotelInfo.id)"
             block
-            class="btn btn-info"
+            class="btn submit-btn"
             >More info</b-button
           >
         </b-col>
@@ -86,24 +86,6 @@ export default {
   border-radius: 10px;
   width: 295px;
   height: 185px;
-}
-
-.btn-info {
-  background-color: rgb(54, 139, 133, 0.8);
-  border: none;
-  height: 38px;
-}
-
-.btn-info:focus,
-.btn-info:focus,
-.btn-info:active {
-  box-shadow: none;
-  border: none;
-  height: 38px;
-}
-
-.btn-info:hover {
-  background-color: #368b85;
 }
 
 .star-color {
