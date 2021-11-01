@@ -40,9 +40,6 @@ export default {
     },
   },
   methods: {
-    show$v() {
-      console.log(JSON.parse(JSON.stringify(this.$v)));
-    },
     fillYearOption() {
       for (let i = 2021; i >= 1900; i--) {
         this.yearOption.push({ value: i, text: i });
@@ -62,6 +59,7 @@ export default {
         <!-- First Name -->
         <label for="firstName">First name</label>
         <b-form-input
+          ref="firstNameRef"
           id="firstName"
           v-model.trim="$v.infoForm.firstName.$model"
           placeholder="Ex: John"

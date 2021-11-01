@@ -14,6 +14,16 @@ export default {
     },
     infoForm(infoForm) {
       this.$emit("infoForm", infoForm);
+      // trigger focus event with ref
+      for (const key in this.$refs) {
+        if (infoForm.isValid) {
+          if (key.split("")[3] == infoForm.index);
+          if (infoForm.index != this.reservationInfo.personNumber) {
+            const manualKey = `ref${infoForm.index + 1}`;
+            this.$refs[manualKey][0].$refs.firstNameRef.focus();
+          }
+        }
+      }
     },
   },
 };
@@ -30,6 +40,7 @@ export default {
           :formIndex="index"
           :reservationInfo="reservationInfo"
           @infoForm="infoForm"
+          :ref="`ref${index}`"
         />
         <b-row class="my-4">
           <b-col>
