@@ -9,3 +9,11 @@
 body {
   background-color: #e8e8e8;
 }
+
+.error-color {
+  color: #ff0000;
+}
+
+.error-border {
+  border: 1px solid #ff0000;
+}

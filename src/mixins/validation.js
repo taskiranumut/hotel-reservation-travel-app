@@ -62,5 +62,3 @@ export const validation = {
     },
   },
 };
-
-// hes kodu: G4X9168315
