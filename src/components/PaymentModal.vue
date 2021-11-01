@@ -8,10 +8,14 @@ export default {
   data() {
     return {
       owner: null,
+      isLoading: true,
     };
   },
   created() {
     this.owner = this.infoFormList.find((item) => item.index === 1);
+  },
+  mounted() {
+    this.removeLoading();
   },
   computed: {
     totalPrice() {
@@ -32,6 +36,11 @@ export default {
         name: "HomePage",
       });
     },
+    removeLoading() {
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 2000);
+    },
   },
 };
 </script>
@@ -41,32 +50,49 @@ export default {
     <div class="modal-wrapper" @click="$emit('modalStatus', false)">
       <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content" @click="$event.stopPropagation()">
-          <p class="modal-title mt-3 text-center header-p pb-2 mx-5">
-            Payment Summary
-          </p>
-          <div class="modal-body px-5 mt-3">
-            <h4>
-              <strong
-                >{{ owner.gender | chooseGender }} {{ ownerFullName }}</strong
-              >
-              payment is successful for
-              <strong>{{ reservationInfo.hotelName }}</strong> reservation for
-              <strong>{{ reservationInfo.personNumber }}</strong> persons.
-            </h4>
+          <section v-if="isLoading">
+            <p class="modal-title mt-3 text-center header-p pb-2 mx-5">
+              Payment is in progress...
+            </p>
+            <div
+              class="
+                spinner-container
+                d-flex
+                justify-content-center
+                align-items-center
+              "
+            >
+              <b-spinner class="spinner"></b-spinner>
+            </div>
+          </section>
+          <section v-else>
+            <p class="modal-title mt-3 text-center header-p pb-2 mx-5">
+              Payment Summary
+            </p>
+            <div class="modal-body px-5 mt-3">
+              <h4>
+                <strong
+                  >{{ owner.gender | chooseGender }} {{ ownerFullName }}</strong
+                >
+                payment is successful for
+                <strong>{{ reservationInfo.hotelName }}</strong> reservation for
+                <strong>{{ reservationInfo.personNumber }}</strong> persons.
+              </h4>
 
-            <ol class="my-4 px-5">
-              <li v-for="info in infoFormList" :key="info.index">
-                {{ info.firstName }} {{ info.lastName }}
-              </li>
-            </ol>
+              <ol class="my-4 px-5">
+                <li v-for="info in infoFormList" :key="info.index">
+                  {{ info.firstName }} {{ info.lastName }}
+                </li>
+              </ol>
 
-            <p>Total price paid: ${{ totalPrice }}</p>
-          </div>
-          <div class="modal-footer border-0 d-flex justify-content-center">
-            <button @click="handleOk" type="button" class="btn ok-btn">
-              OK
-            </button>
-          </div>
+              <p>Total price paid: ${{ totalPrice }}</p>
+            </div>
+            <div class="modal-footer border-0 d-flex justify-content-center">
+              <button @click="handleOk" type="button" class="btn submit-btn">
+                OK
+              </button>
+            </div>
+          </section>
         </div>
       </div>
     </div>
@@ -90,14 +116,26 @@ export default {
 }
 .modal-wrapper {
   display: table-cell;
-  vertical-align: top;
+  /* vertical-align: top; */
 }
+
+.modal-dialog {
+  top: 20vh;
+}
+
 .modal-content,
 .modal-header {
-  background-color: #bbbfca;
+  background-color: #f4f4f2;
 }
-.ok-btn {
-  color: #f4f4f2;
-  background-color: #368b85;
+
+.spinner-container {
+  height: 30vh;
+}
+
+.spinner {
+  width: 70px;
+  height: 70px;
+  font-size: 20px;
+  color: #368b85;
 }
 </style>
