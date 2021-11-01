@@ -50,7 +50,7 @@ export default {
 
 <style scoped>
 .form-main-container {
-  width: 70%;
+  width: 60%;
   margin: auto;
 }
 </style>

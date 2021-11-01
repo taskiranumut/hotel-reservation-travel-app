@@ -3,13 +3,12 @@ import {
   minLength,
   email,
   numeric,
-  minValue,
   helpers,
 } from "vuelidate/lib/validators";
 
 const checkHesNumber = helpers.regex(
   "checkHesNumber",
-  /^[A-Za-z][0-9][A-Za-z][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/g
+  /^[A-Za-z][0-9][A-Za-z][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/
 );
 
 const checkPhoneNumber = helpers.regex(
@@ -21,6 +20,8 @@ const checkTcNumber = helpers.regex(
   "checkTcNumber",
   /^[1-9]{1}[0-9]{9}[02468]{1}$/
 );
+
+const ageCheck = (value) => 2021 - value >= 6;
 
 export const validation = {
   validations: {
@@ -42,10 +43,10 @@ export const validation = {
         numeric,
         checkPhoneNumber,
       },
-      age: {
+      year: {
         required,
         numeric,
-        minValue: minValue(6),
+        ageCheck,
       },
       tcNumber: {
         required,
