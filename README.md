@@ -1,9 +1,15 @@
-# Hotel Reservation Travel App
+# Hotel Reservation Travel App - Vue 2
 
-#### Working progress...
+👉 [Project Demo](https://hotel-reservation-travel-app.vercel.app/)
 
-<!-- 👉 [Project Demo](https://hotel-reservation-travel-app.netlify.app/) -->
-<!-- 👉 [Project Demo](https://hotel-reservation-travel-app.vercel.app/) -->
+### Used technologies & libraries
+
+- Vue 2 - Vue Router
+- JavaScript
+- HTML
+- CSS
+- Bootstrap-Vue
+- Vuelidate
 
 ### Project setup
 
@@ -11,3 +17,5 @@
 2. After cloned the project, ➪ `npm install`
 3. Compiles and hot-reloads for development, ➪ `npm run serve`
 4. Compiles and minifies for production, ➪ `npm run build`
+
+The application was developed within the scope of Patika.dev & Reengen Fullstack Bootcamp.
